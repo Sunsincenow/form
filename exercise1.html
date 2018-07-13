@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则</title>
+</head>
+<body>
+	<form action="#" name='yy'>
+		<input type="text" name='unum'/>
+		<input type="submit"/>
+	</form>
+	<script>
+		//匹配用户输入的电话号码是否正确
+		var uname=document.forms['yy'].elements['unum'];
+		console.log(uname);
+		document.forms['yy'].onsubmit=function(){
+			var reg2=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+			var uvalue=uname.value;
+			// console.log(uvalue);
+			var boo=reg2.test(uvalue);
+			// console.log(boo);
+			if(boo){
+				console.log('输入正确');
+			}else {
+				alert("请输入正确的电话号码");
+			}
+		}
+
+		var reg=new RegExp('h','g');
+		var reg1=/hi/g;//简写
+		var a='haioqhfawh';
+		var b='hahahi';
+		console.log(reg.exec(a));//返回数组，匹配项及索引
+		console.log(reg.exec(a));
+		console.log(reg.test(b));//判断是否有匹配项
+		console.log(reg1.test('b'));
+
+		//字符串方法
+		console.log(b.match(reg1));
+
+		var reg2=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+		var aa='13174413678';
+		var bb='89172';
+		console.log(reg2.exec(aa));
+		console.log(reg2.test(bb));
+
+		var hhh="18016381232".match(/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/);
+		console.log(hhh);
+	</script>
+</body>
+</html>
